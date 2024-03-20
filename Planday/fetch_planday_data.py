@@ -11,10 +11,14 @@ from Planday.fetch_fisketorget_stavanger import fetch_fisketorget
 
 async def fetch_planday(client_id, refresh_token, company):
     today_date = datetime.today()
-    start_date = (today_date - timedelta(weeks=2)).strftime("%Y-%m-%d")
-    end_date = (today_date + timedelta(weeks=2)).strftime("%Y-%m-%d")
+    start_date = (today_date - timedelta(days=62)).strftime("%Y-%m-%d")
+    end_date = today_date.strftime("%Y-%m-%d")
+
+    # start_date = (today_date - timedelta(weeks=2)).strftime("%Y-%m-%d")
+    # end_date = (today_date + timedelta(weeks=2)).strftime("%Y-%m-%d")
     # start_date = "2024-01-01"
     # end_date = "2024-02-01"
+
     token_endpoint = "https://id.planday.com"
     api_endpoint = "https://openapi.planday.com"
     timeout_duration = 30.0
